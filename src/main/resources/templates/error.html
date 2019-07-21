@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>error page</title>
 </head>
 <body>
 
-<h1>${errors.status}</h1>
-<h1>${errors.message}</h1>
+<div th:text="${errors}"></div>
+<h1>Error page!</h1>
 </body>
 </html>

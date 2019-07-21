@@ -5,10 +5,15 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.CollectionUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.error.ErrorAttributes;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.ServletWebRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 import java.util.Map;
 
@@ -19,11 +24,6 @@ public class LoginController {
     public String login() {
         return "login";
     }
-
-//    @RequestMapping(value = "/logout",method = RequestMethod.GET)
-//    public String logout() {
-//        return "logout";
-//    }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String loginPage() {
@@ -44,6 +44,5 @@ public class LoginController {
         }
         return "index";
     }
-
 
 }
