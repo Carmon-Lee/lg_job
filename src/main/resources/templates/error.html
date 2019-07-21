@@ -5,7 +5,8 @@
 </head>
 <body>
 
-<div th:text="${errors}"></div>
-<h1>Error page!</h1>
+<h2>Error page!</h2>
+<div th:bgcolor="red" th:text="${errors.status}"></div>
+<div th:bgcolor="red" th:text="${errors.message}"></div>
 </body>
 </html>

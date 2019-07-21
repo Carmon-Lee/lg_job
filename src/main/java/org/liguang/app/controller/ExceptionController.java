@@ -22,7 +22,7 @@ public class ExceptionController {
         // resource at that location)
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("status", HttpStatus.FORBIDDEN.value());
-        map.put("message", "No message available");
+        map.put("message", "No permission!");
         model.addAttribute("errors", map);
 
         return "error";
