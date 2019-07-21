@@ -29,11 +29,13 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-quartz")
+//    compile("org.springframework.boot:spring-boot-starter-quartz")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     compile("org.springframework.boot:spring-boot-starter-aop")
-    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+
+//    compile("org.apache.shiro:shiro-spring-boot-starter:1.4.0")
     
     compile("mysql:mysql-connector-java")
     testCompile("org.springframework.boot:spring-boot-starter-test")
