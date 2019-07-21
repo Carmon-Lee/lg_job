@@ -1,29 +1,49 @@
 package org.liguang.app.login;
 
 
-//import org.apache.shiro.SecurityUtils;
-//import org.apache.shiro.authc.UsernamePasswordToken;
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
-//import org.apache.shiro.subject.Subject;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.CollectionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.Collection;
+import java.util.Map;
 
 @Controller
 public class LoginController {
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login() {
         return "login";
     }
 
-//    @RequestMapping("/download")
-//    @RequiresPermissions("file:download")
-//    public String download() {
-//
-//        Subject user = SecurityUtils.getSubject();
-//        UsernamePasswordToken token = new UsernamePasswordToken("liguang", "password");
-//        user.login(token);
-//        return "download";
+//    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+//    public String logout() {
+//        return "logout";
 //    }
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public String loginPage() {
+        String name = "World";
+
+        Subject subject = SecurityUtils.getSubject();
+
+        PrincipalCollection principalCollection = subject.getPrincipals();
+
+        if (principalCollection != null && !principalCollection.isEmpty()) {
+            Collection<Map> principalMaps = subject.getPrincipals().byType(Map.class);
+            if (CollectionUtils.isEmpty(principalMaps)) {
+                name = subject.getPrincipal().toString();
+            }
+            else {
+                name = (String) principalMaps.iterator().next().get("username");
+            }
+        }
+        return "index";
+    }
+
+
 }

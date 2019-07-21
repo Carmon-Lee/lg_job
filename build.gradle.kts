@@ -35,7 +35,7 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 
-//    compile("org.apache.shiro:shiro-spring-boot-starter:1.4.0")
+    compile("org.apache.shiro:shiro-spring-boot-web-starter:1.4.0")
     
     compile("mysql:mysql-connector-java")
     testCompile("org.springframework.boot:spring-boot-starter-test")
