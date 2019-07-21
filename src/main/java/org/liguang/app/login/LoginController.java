@@ -1,7 +1,6 @@
 package org.liguang.app.login;
 
 
-import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +14,4 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping(value = "/logout",method = RequestMethod.GET)
-    public String logout() {
-        SecurityUtils.getSubject().logout();
-        return "logout";
-    }
 }

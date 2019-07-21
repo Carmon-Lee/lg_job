@@ -17,7 +17,6 @@ public class ExceptionController {
     @ExceptionHandler(AuthorizationException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     public String handleException(AuthorizationException e, Model model) {
-
         // you could return a 404 here instead (this is how github handles 403, so the user does NOT know there is a
         // resource at that location)
         Map<String, Object> map = new HashMap<String, Object>();
